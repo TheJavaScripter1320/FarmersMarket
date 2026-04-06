@@ -1,40 +1,174 @@
+
+
+Skip to content
+Using LAUSD Mail with screen readers
+1 of 2,946
+eyjyytjtyn
+Inbox
+
+AARON GUILLERMO <aguiller0005@mymail.lausd.net>
+12:10 PM (0 minutes ago)
+to me
+
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * 
+{
+    margin: 0;
+    padding: 0;
+    /*font-size: clamp(10px,3vw,25px);*/
+}
+
+body 
+{
+    background-color: rgb(100,200,100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header 
+{
+    display: flex;
+    gap: 20px;
+    color: white;
+    align-items: center;
+    background-color: rgb(33, 139, 89);
+    width: calc(100vw - 20px);
+    padding: 10px;
+}
+
+header nav 
+{
+    padding: 20px;
+    border-radius: 20px;
+    font-size: clamp(0.75em,2vw,1.75em);
+    background-color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,1);
+}
+
+nav a:visited, nav a:link
+{
+    color: rgb(18, 96, 60);
+    text-decoration: unset;
+    font-weight: 700;
+}
+
+header div 
+{
+    font-size: clamp(0.25em,2vw,1.5em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+header img 
+{
+    width: clamp(50px,13vw,100px);
+    height: clamp(50px,13vw,100px);
+}
+
+.lobster {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+iframe 
+{
+    width: clamp(200px,100vw,800px);
+    height: clamp(170px,100vw,700px);
+}
+
+main 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background-color: white;
+    color: black;
+}
+
+section 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table 
+{
+    border-collapse: collapse;
+    width: auto;
+    background-color:rgb(18, 96, 60);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+td, caption
+{
+    border: 3px solid rgb(52, 136, 102);
+    padding: 10px;
+    background-color: white;
+}
+
+caption 
+{
+    width: calc(100% - 26px);
+}
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&amp;family=Lobster&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Document</title>
-  </head>
-  <body>
+</head>
+<body onload='const table = document.querySelector("#infoTable");
+const button = document.querySelector("#infoButton");
+const input = document.querySelector("#infoInput");
+(function() 
+{
+    const theInfos = {california:[{name:"HistoricDowntownFarmersMarket",location:"209W5thSt,BroadwaytoMainSt",hours:"EverySundayfrom10a.m.to3p.m."},{name:"DowntownSantaMonicaFarmersMarket",location:"SantaMonica•155-199ArizonaAve,SantaMonica,CA90401",hours:"WednesdaysandSaturdaysfrom8:00a.m.to1:00p.m."},{name:"MountainViewFarmers’Market",location:"600WestEvelynAve,MountainView,CA94041",hours:"EverySundayfrom9:00a.m.to1:00p.m."},{name:"OceanBeachFarmersMarket",location:"4900NewportAve,SanDiego,CA92107",hours:"Trycalling(619)224-4906"}],nevada:[{name:"DowntownHendersonFarmersMarket",location:"Henderson,NV89103",hours:"UNAVAILABLE"},{name:"DowntownFarmersMarketatAncestorSquare",location:"2WSt.GeorgeBlvd,St.George,UT84770",hours:"UNAVAILABLE"},{name:"fresh52Farmers&ArtisanMarket",location:"9480S.EasternAve,LasVegas,NV89123",hours:"EverySundayfrom8:30a.mto1:00p.m."},{name:"LasVegasFarmersMarket",location:"GardensPark-10401GardenParkDrive",hours:"Idunno"}],washington:[{name:"DowntownHendersonFarmersMarket",location:"Henderson,NV89103",hours:"UNAVAILABLE"},{name:"DowntownFarmersMarketatAncestorSquare",location:"2WSt.GeorgeBlvd,St.George,UT84770",hours:"UNAVAILABLE"},{name:"fresh52Farmers&ArtisanMarket",location:"9480S.EasternAve,LasVegas,NV89123",hours:"EverySundayfrom8:30a.mto1:00p.m."},{name:"LasVegasFarmersMarket",location:"GardensPark-10401GardenParkDrive",hours:"Idunno"}],newyork:[{name:"DowntownHendersonFarmersMarket",location:"Henderson,NV89103",hours:"UNAVAILABLE"},{name:"DowntownFarmersMarketatAncestorSquare",location:"2WSt.GeorgeBlvd,St.George,UT84770",hours:"UNAVAILABLE"},{name:"fresh52Farmers&ArtisanMarket",location:"9480S.EasternAve,LasVegas,NV89123",hours:"EverySundayfrom8:30a.mto1:00p.m."},{name:"LasVegasFarmersMarket",location:"GardensPark-10401GardenParkDrive",hours:"Idunno"}]};
+    button.addEventListener("click", () => 
+    {
+        let region = input.value.toLowerCase().trim();
+        table.innerHTML = "<caption>" + input.value.toUpperCase() + "</caption>";
+        for (market of theInfos[region]) 
+        {
+            table.innerHTML += "<tr><td>" + market.name + "</td><td>" + market.location + "</td><td>" + market.hours + "</td></tr>";
+        }
+    });
+})();
+'>
     <header>
-      <img src="grocery.png">
-      <div>
-        <h1> Farmer's Market </h1>
-        <p class="lobster"> Only the best for you! </p>
-      </div>
-      <nav>
-        <a href="https://www.youtube.com"> LINK </a>
-        <a href="https://www.youtube.com"> LINK </a>
-        <a href="https://www.youtube.com"> LINK </a>
-        <a href="https://www.youtube.com"> LINK </a>
-        <a href="https://www.youtube.com"> LINK </a>
-      </nav>
+        <img src="grocery.png">
+        <div>
+            <h1> Farmer"s Market </h1>
+            <p class="lobster"> Only the best for you! </p>
+        </div>
+        <nav>
+            <a href="https://www.youtube.com"> LINK </a>
+            <a href="https://www.youtube.com"> LINK </a>
+            <a href="https://www.youtube.com"> LINK </a>
+            <a href="https://www.youtube.com"> LINK </a>
+            <a href="https://www.youtube.com"> LINK </a>
+        </nav>
     </header>
     <main>
-      <input id="infoInput" list="regionList">
-      <datalist id="regionList">
-        <option value="california">California</option>
-        <option value="nevada">Nevada</option>
-        <option value="washington">Washington</option>
-        <option value="newyork">New York</option>
-      </datalist>
-      <button id="infoButton"> SEARCH </button>
-      <table id="infoTable"></table>
-      </main>
-  </body>
+        <input id="infoInput" list="regionList">
+        <datalist id="regionList">
+            <option value="california">California</option>
+            <option value="nevada">Nevada</option>
+            <option value="washington">Washington</option>
+            <option value="newyork">New York</option>
+        </datalist>
+        <button id="infoButton"> SEARCH </button>
+        <table id="infoTable"></table>
+    </main>
 </html>
