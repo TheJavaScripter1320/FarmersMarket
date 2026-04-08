@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +82,8 @@ main
     width: 100vw;
     background-color: white;
     color: black;
+    gap: 10px;
+    padding: 10px 0;
 }
 
 section 
@@ -88,6 +91,7 @@ section
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 table 
@@ -127,6 +131,14 @@ const input = document.querySelector("#infoInput");
     {
         let region = input.value.toLowerCase().trim();
         table.innerHTML = "<caption>" + input.value.toUpperCase() + "</caption>";
+        if (region === "washington" || region === "newyork") 
+        {
+          for (let i = 0; i < 4; i++) 
+          {
+            table.innerHTML += "<tr><td>UNAVAILABLE</td><td>UNAVAILABLE</td><td>UNAVAILABLE</td></tr>";
+          }
+          return;
+        }
         for (market of theInfos[region]) 
         {
             table.innerHTML += "<tr><td>" + market.name + "</td><td>" + market.location + "</td><td>" + market.hours + "</td></tr>";
@@ -137,7 +149,7 @@ const input = document.querySelector("#infoInput");
     <header>
         <img src="grocery.png">
         <div>
-            <h1> Farmer"s Market </h1>
+            <h1> Farmer's Market </h1>
             <p class="lobster"> Only the best for you! </p>
         </div>
         <nav>
@@ -149,6 +161,8 @@ const input = document.querySelector("#infoInput");
         </nav>
     </header>
     <main>
+        <h2> Advanced Search </h2>
+        <p style="background-color: rgb(50,190,50); padding: 5px 0px; color: white; ">Advanced Search is meant to help you find the farmer markets that aim to help your community! We range from California, Nevada, New York, and Washington. Super convenient I know!</p>
         <input id="infoInput" list="regionList">
         <datalist id="regionList">
             <option value="california">California</option>
